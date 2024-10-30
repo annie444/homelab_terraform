@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=values.schema.json
+cluster:
+  name: kubernetes
+bgpControlPlane:
+  enabled: true
+hubble:
+  relay:
+    enabled: true
+    prometheus:
+      serviceMonitor:
+        enabled: true
+  ui:
+    enabled: true
+    prometheus:
+      serviceMonitor:
+        enabled: true
+operator:
+  replicas: 1
+  prometheus:
+    serviceMonitor:
+      enabled: true
+routingMode: tunnel
+tunnelProtocol: vxlan
+prometheus:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+dashboards:
+  enabled: true
+bpf:
+  autoMount:
+    enabled: true
+  masquerade: true
+kubeProxyReplacement: true
+k8sServicePort: 6443
+k8sServiceHost: 192.168.1.42
+loadBalancer:
+  algorithm: maglev
+maglev:
+  tableSize: 4093
+l2announcements:
+  enabled: true
+externalIPs:
+  enabled: true
+kubeProxyReplacementHealthzBindAddr: '0.0.0.0:10256'
+hostFirewall:
+  enabled: true
+devices: 
+  - eno1
+  - enp0s20f0u6
+  - enp5s0
+  - enp42s0
+ingressController:
+  enabled: true
+  loadbalancerMode: dedicated

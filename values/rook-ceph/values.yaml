@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=values.schema.json
+pspEnable: true
+hostpathRequiresPrivileged: true
+csi:
+  enableCSIHostNetwork: false
+  enableNFSSnapshotter: false
+  enablePluginSelinuxHostMount: false
+  enableCSIEncryption: false
+  enableCephfsSnapshotter: false
+  enableRBDSnapshotter: false
+  enableVolumeGroupSnapshot: false
+  provisionerReplicas: 1
+  csiDriverNamePrefix: storage
+  csiAddons:
+    enabled: false
+discover:
+  resources:
+    limits:
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi

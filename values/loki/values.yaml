@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=values.schema.json
+
+deploymentMode: SimpleScalable
+
+loki:
+  auth_enabled: true
+  commonConfig:
+    path_prefix: /var/loki
+    replication_factor: 3
+  storage:
+    s3:
+      region: us-west-1
+      s3ForcePathStyle: false
+      insecure: true
+      disable_dualstack: false
+  tracing:
+    enabled: true
+serviceAccount:
+  create: true
+rbac:
+  pspEnabled: false
+  sccEnabled: false
+adminApi:
+  replicas: 1
+gateway:
+  enabled: true
+  replicas: 1
+  containerPort: 8080
+  verboseLogging: true
+  autoscaling:
+    enabled: false
+  basicAuth:
+    enabled: true
+    username: admin
+    password: password 
+    htpasswd: >-
+      {{ if .Values.loki.tenants }}
+
+
+        {{- range $t := .Values.loki.tenants }}
+      {{ htpasswd (required "All tenants must have a 'name' set" $t.name) (required "All tenants must have a 'password' set" $t.password) }}
+
+
+        {{- end }}
+      {{ else }} {{ htpasswd (required "'gateway.basicAuth.username' is required" .Values.gateway.basicAuth.username) (required "'gateway.basicAuth.password' is required" .Values.gateway.basicAuth.password) }} {{ end }}
+write:
+  # -- Number of replicas for the write
+  replicas: 1
+  persistence:
+    volumeClaimsEnabled: true
+    enableStatefulSetAutoDeletePVC: false
+    size: 10Gi
+    storageClass: ceph-block
+read:
+  replicas: 1
+  persistence:
+    enableStatefulSetAutoDeletePVC: true
+    size: 10Gi
+    storageClass: ceph-block
+backend:
+  replicas: 1
+  persistence:
+    volumeClaimsEnabled: true
+    enableStatefulSetAutoDeletePVC: true
+    size: 10Gi
+    storageClass: ceph-block

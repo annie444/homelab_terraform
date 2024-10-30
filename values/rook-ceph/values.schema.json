@@ -1,0 +1,493 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "allowLoopDevices": {
+      "type": "boolean"
+    },
+    "annotations": {
+      "properties": {},
+      "type": "object"
+    },
+    "cephCommandsTimeoutSeconds": {
+      "type": "string"
+    },
+    "containerSecurityContext": {
+      "properties": {
+        "capabilities": {
+          "properties": {
+            "drop": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "runAsGroup": {
+          "type": "integer"
+        },
+        "runAsNonRoot": {
+          "type": "boolean"
+        },
+        "runAsUser": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "crds": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "csi": {
+      "properties": {
+        "allowUnsupportedVersion": {
+          "type": "boolean"
+        },
+        "attacher": {
+          "properties": {
+            "repository": {
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "cephFSAttachRequired": {
+          "type": "boolean"
+        },
+        "cephFSFSGroupPolicy": {
+          "type": "string"
+        },
+        "cephFSKernelMountOptions": {
+          "type": "string"
+        },
+        "cephFSPluginUpdateStrategy": {
+          "type": "string"
+        },
+        "cephFSPluginUpdateStrategyMaxUnavailable": {
+          "type": "string"
+        },
+        "cephcsi": {
+          "properties": {
+            "repository": {
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "cephfsLivenessMetricsPort": {
+          "type": "string"
+        },
+        "cephfsPodLabels": {
+          "type": "string"
+        },
+        "clusterName": {
+          "type": "string"
+        },
+        "csiAddons": {
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "repository": {
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "csiAddonsPort": {
+          "type": "string"
+        },
+        "csiCephFSPluginResource": {
+          "type": "string"
+        },
+        "csiCephFSPluginVolume": {
+          "type": "string"
+        },
+        "csiCephFSPluginVolumeMount": {
+          "type": "string"
+        },
+        "csiCephFSProvisionerResource": {
+          "type": "string"
+        },
+        "csiDriverNamePrefix": {
+          "type": "string"
+        },
+        "csiLeaderElectionLeaseDuration": {
+          "type": "string"
+        },
+        "csiLeaderElectionRenewDeadline": {
+          "type": "string"
+        },
+        "csiLeaderElectionRetryPeriod": {
+          "type": "string"
+        },
+        "csiNFSPluginResource": {
+          "type": "string"
+        },
+        "csiNFSProvisionerResource": {
+          "type": "string"
+        },
+        "csiRBDPluginResource": {
+          "type": "string"
+        },
+        "csiRBDPluginVolume": {
+          "type": "string"
+        },
+        "csiRBDPluginVolumeMount": {
+          "type": "string"
+        },
+        "csiRBDProvisionerResource": {
+          "type": "string"
+        },
+        "disableCsiDriver": {
+          "type": "string"
+        },
+        "disableHolderPods": {
+          "type": "boolean"
+        },
+        "enableCSIEncryption": {
+          "type": "boolean"
+        },
+        "enableCSIHostNetwork": {
+          "type": "boolean"
+        },
+        "enableCephfsDriver": {
+          "type": "boolean"
+        },
+        "enableCephfsSnapshotter": {
+          "type": "boolean"
+        },
+        "enableLiveness": {
+          "type": "boolean"
+        },
+        "enableMetadata": {
+          "type": "boolean"
+        },
+        "enableNFSSnapshotter": {
+          "type": "boolean"
+        },
+        "enableOMAPGenerator": {
+          "type": "boolean"
+        },
+        "enablePluginSelinuxHostMount": {
+          "type": "boolean"
+        },
+        "enableRBDSnapshotter": {
+          "type": "boolean"
+        },
+        "enableRbdDriver": {
+          "type": "boolean"
+        },
+        "enableVolumeGroupSnapshot": {
+          "type": "boolean"
+        },
+        "forceCephFSKernelClient": {
+          "type": "boolean"
+        },
+        "grpcTimeoutInSeconds": {
+          "type": "integer"
+        },
+        "imagePullPolicy": {
+          "type": "string"
+        },
+        "kubeApiBurst": {
+          "type": "string"
+        },
+        "kubeApiQPS": {
+          "type": "string"
+        },
+        "kubeletDirPath": {
+          "type": "string"
+        },
+        "logLevel": {
+          "type": "integer"
+        },
+        "nfs": {
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "nfsAttachRequired": {
+          "type": "boolean"
+        },
+        "nfsFSGroupPolicy": {
+          "type": "string"
+        },
+        "nfsPluginUpdateStrategy": {
+          "type": "string"
+        },
+        "nfsPodLabels": {
+          "type": "string"
+        },
+        "pluginNodeAffinity": {
+          "type": "string"
+        },
+        "pluginPriorityClassName": {
+          "type": "string"
+        },
+        "pluginTolerations": {
+          "type": "string"
+        },
+        "provisioner": {
+          "properties": {
+            "repository": {
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "provisionerNodeAffinity": {
+          "type": "string"
+        },
+        "provisionerPriorityClassName": {
+          "type": "string"
+        },
+        "provisionerReplicas": {
+          "type": "integer"
+        },
+        "provisionerTolerations": {
+          "type": "string"
+        },
+        "rbdAttachRequired": {
+          "type": "boolean"
+        },
+        "rbdFSGroupPolicy": {
+          "type": "string"
+        },
+        "rbdLivenessMetricsPort": {
+          "type": "string"
+        },
+        "rbdPluginUpdateStrategy": {
+          "type": "string"
+        },
+        "rbdPluginUpdateStrategyMaxUnavailable": {
+          "type": "string"
+        },
+        "rbdPodLabels": {
+          "type": "string"
+        },
+        "registrar": {
+          "properties": {
+            "repository": {
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "resizer": {
+          "properties": {
+            "repository": {
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "serviceMonitor": {
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "interval": {
+              "type": "string"
+            },
+            "labels": {
+              "properties": {},
+              "type": "object"
+            },
+            "namespace": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "sidecarLogLevel": {
+          "type": "string"
+        },
+        "snapshotter": {
+          "properties": {
+            "repository": {
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "topology": {
+          "properties": {
+            "domainLabels": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "currentNamespaceOnly": {
+      "type": "boolean"
+    },
+    "disableDeviceHotplug": {
+      "type": "boolean"
+    },
+    "discover": {
+      "properties": {
+        "nodeAffinity": {
+          "type": "string"
+        },
+        "podLabels": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "object",
+          "properties": {}
+        },
+        "toleration": {
+          "type": "string"
+        },
+        "tolerationKey": {
+          "type": "string"
+        },
+        "tolerations": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "discoverDaemonUdev": {
+      "type": "string"
+    },
+    "discoveryDaemonInterval": {
+      "type": "string"
+    },
+    "enableDiscoveryDaemon": {
+      "type": "boolean"
+    },
+    "enableOBCWatchOperatorNamespace": {
+      "type": "boolean"
+    },
+    "hostpathRequiresPrivileged": {
+      "type": "boolean"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "type": "string"
+    },
+    "logLevel": {
+      "type": "string"
+    },
+    "monitoring": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "nodeSelector": {
+      "properties": {},
+      "type": "object"
+    },
+    "obcProvisionerNamePrefix": {
+      "type": "string"
+    },
+    "priorityClassName": {
+      "type": "string"
+    },
+    "pspEnable": {
+      "type": "boolean"
+    },
+    "rbacAggregate": {
+      "properties": {
+        "enableOBCs": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "rbacEnable": {
+      "type": "boolean"
+    },
+    "resources": {
+      "properties": {
+        "limits": {
+          "properties": {
+            "memory": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "requests": {
+          "properties": {
+            "cpu": {
+              "type": "string"
+            },
+            "memory": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "scaleDownOperator": {
+      "type": "boolean"
+    },
+    "tolerations": {
+      "type": "array"
+    },
+    "unreachableNodeTolerationSeconds": {
+      "type": "integer"
+    },
+    "useOperatorHostNetwork": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,1039 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "cephBlockPools": {
+      "items": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "spec": {
+            "properties": {
+              "failureDomain": {
+                "type": "string"
+              },
+              "replicated": {
+                "properties": {
+                  "size": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "storageClass": {
+            "properties": {
+              "allowVolumeExpansion": {
+                "type": "boolean"
+              },
+              "allowedTopologies": {
+                "type": "array"
+              },
+              "annotations": {
+                "properties": {},
+                "type": "object"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "isDefault": {
+                "type": "boolean"
+              },
+              "labels": {
+                "properties": {},
+                "type": "object"
+              },
+              "mountOptions": {
+                "type": "array"
+              },
+              "name": {
+                "type": "string"
+              },
+              "parameters": {
+                "properties": {
+                  "csi.storage.k8s.io/controller-expand-secret-name": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/controller-expand-secret-namespace": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/fstype": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/node-stage-secret-name": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/node-stage-secret-namespace": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/provisioner-secret-name": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/provisioner-secret-namespace": {
+                    "type": "string"
+                  },
+                  "imageFeatures": {
+                    "type": "string"
+                  },
+                  "imageFormat": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "reclaimPolicy": {
+                "type": "string"
+              },
+              "volumeBindingMode": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "cephBlockPoolsVolumeSnapshotClass": {
+      "properties": {
+        "annotations": {
+          "properties": {},
+          "type": "object"
+        },
+        "deletionPolicy": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "labels": {
+          "properties": {},
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "cephClusterSpec": {
+      "properties": {
+        "cephVersion": {
+          "properties": {
+            "allowUnsupported": {
+              "type": "boolean"
+            },
+            "image": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "cleanupPolicy": {
+          "properties": {
+            "allowUninstallWithVolumes": {
+              "type": "boolean"
+            },
+            "confirmation": {
+              "type": "string"
+            },
+            "sanitizeDisks": {
+              "properties": {
+                "dataSource": {
+                  "type": "string"
+                },
+                "iteration": {
+                  "type": "integer"
+                },
+                "method": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "continueUpgradeAfterChecksEvenIfNotHealthy": {
+          "type": "boolean"
+        },
+        "crashCollector": {
+          "properties": {
+            "disable": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "dashboard": {
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "ssl": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "dataDirHostPath": {
+          "type": "string"
+        },
+        "disruptionManagement": {
+          "properties": {
+            "managePodBudgets": {
+              "type": "boolean"
+            },
+            "osdMaintenanceTimeout": {
+              "type": "integer"
+            },
+            "pgHealthCheckTimeout": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "healthCheck": {
+          "properties": {
+            "daemonHealth": {
+              "properties": {
+                "mon": {
+                  "properties": {
+                    "disabled": {
+                      "type": "boolean"
+                    },
+                    "interval": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "osd": {
+                  "properties": {
+                    "disabled": {
+                      "type": "boolean"
+                    },
+                    "interval": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "status": {
+                  "properties": {
+                    "disabled": {
+                      "type": "boolean"
+                    },
+                    "interval": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "livenessProbe": {
+              "properties": {
+                "mgr": {
+                  "properties": {
+                    "disabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "mon": {
+                  "properties": {
+                    "disabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "osd": {
+                  "properties": {
+                    "disabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "logCollector": {
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "maxLogSize": {
+              "type": "string"
+            },
+            "periodicity": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "mgr": {
+          "properties": {
+            "allowMultiplePerNode": {
+              "type": "boolean"
+            },
+            "count": {
+              "type": "integer"
+            },
+            "modules": {
+              "type": "null"
+            }
+          },
+          "type": "object"
+        },
+        "mon": {
+          "properties": {
+            "allowMultiplePerNode": {
+              "type": "boolean"
+            },
+            "count": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "network": {
+          "properties": {
+            "connections": {
+              "properties": {
+                "compression": {
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "encryption": {
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "requireMsgr2": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "priorityClassNames": {
+          "properties": {
+            "mgr": {
+              "type": "string"
+            },
+            "mon": {
+              "type": "string"
+            },
+            "osd": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "removeOSDsIfOutAndSafeToRemove": {
+          "type": "boolean"
+        },
+        "resources": {
+          "properties": {
+            "cleanup": {
+              "properties": {
+                "limits": {
+                  "properties": {
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "requests": {
+                  "properties": {
+                    "cpu": {
+                      "type": "string"
+                    },
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "crashcollector": {
+              "properties": {
+                "limits": {
+                  "properties": {
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "requests": {
+                  "properties": {
+                    "cpu": {
+                      "type": "string"
+                    },
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "exporter": {
+              "properties": {
+                "limits": {
+                  "properties": {
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "requests": {
+                  "properties": {
+                    "cpu": {
+                      "type": "string"
+                    },
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "logcollector": {
+              "properties": {
+                "limits": {
+                  "properties": {
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "requests": {
+                  "properties": {
+                    "cpu": {
+                      "type": "string"
+                    },
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "mgr": {
+              "properties": {
+                "limits": {
+                  "properties": {
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "requests": {
+                  "properties": {
+                    "cpu": {
+                      "type": "string"
+                    },
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "mgr-sidecar": {
+              "properties": {
+                "limits": {
+                  "properties": {
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "requests": {
+                  "properties": {
+                    "cpu": {
+                      "type": "string"
+                    },
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "mon": {
+              "properties": {
+                "limits": {
+                  "properties": {
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "requests": {
+                  "properties": {
+                    "cpu": {
+                      "type": "string"
+                    },
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "osd": {
+              "properties": {
+                "limits": {
+                  "properties": {
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "requests": {
+                  "properties": {
+                    "cpu": {
+                      "type": "string"
+                    },
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "prepareosd": {
+              "properties": {
+                "requests": {
+                  "properties": {
+                    "cpu": {
+                      "type": "string"
+                    },
+                    "memory": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "skipUpgradeChecks": {
+          "type": "boolean"
+        },
+        "storage": {
+          "properties": {
+            "useAllDevices": {
+              "type": "boolean"
+            },
+            "useAllNodes": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "upgradeOSDRequiresHealthyPGs": {
+          "type": "boolean"
+        },
+        "waitTimeoutForHealthyOSDInMinutes": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "cephFileSystemVolumeSnapshotClass": {
+      "properties": {
+        "annotations": {
+          "properties": {},
+          "type": "object"
+        },
+        "deletionPolicy": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "labels": {
+          "properties": {},
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "cephFileSystems": {
+      "items": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "spec": {
+            "properties": {
+              "dataPools": {
+                "items": {
+                  "properties": {
+                    "failureDomain": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "replicated": {
+                      "properties": {
+                        "size": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "metadataPool": {
+                "properties": {
+                  "replicated": {
+                    "properties": {
+                      "size": {
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "metadataServer": {
+                "properties": {
+                  "activeCount": {
+                    "type": "integer"
+                  },
+                  "activeStandby": {
+                    "type": "boolean"
+                  },
+                  "priorityClassName": {
+                    "type": "string"
+                  },
+                  "resources": {
+                    "properties": {
+                      "limits": {
+                        "properties": {
+                          "memory": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "requests": {
+                        "properties": {
+                          "cpu": {
+                            "type": "string"
+                          },
+                          "memory": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "storageClass": {
+            "properties": {
+              "allowVolumeExpansion": {
+                "type": "boolean"
+              },
+              "annotations": {
+                "properties": {},
+                "type": "object"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "isDefault": {
+                "type": "boolean"
+              },
+              "labels": {
+                "properties": {},
+                "type": "object"
+              },
+              "mountOptions": {
+                "type": "array"
+              },
+              "name": {
+                "type": "string"
+              },
+              "parameters": {
+                "properties": {
+                  "csi.storage.k8s.io/controller-expand-secret-name": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/controller-expand-secret-namespace": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/fstype": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/node-stage-secret-name": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/node-stage-secret-namespace": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/provisioner-secret-name": {
+                    "type": "string"
+                  },
+                  "csi.storage.k8s.io/provisioner-secret-namespace": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "pool": {
+                "type": "string"
+              },
+              "reclaimPolicy": {
+                "type": "string"
+              },
+              "volumeBindingMode": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "cephObjectStores": {
+      "items": {
+        "properties": {
+          "ingress": {
+            "properties": {
+              "enabled": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "name": {
+            "type": "string"
+          },
+          "spec": {
+            "properties": {
+              "dataPool": {
+                "properties": {
+                  "erasureCoded": {
+                    "properties": {
+                      "codingChunks": {
+                        "type": "integer"
+                      },
+                      "dataChunks": {
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "failureDomain": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "gateway": {
+                "properties": {
+                  "instances": {
+                    "type": "integer"
+                  },
+                  "port": {
+                    "type": "integer"
+                  },
+                  "priorityClassName": {
+                    "type": "string"
+                  },
+                  "resources": {
+                    "properties": {
+                      "limits": {
+                        "properties": {
+                          "memory": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "requests": {
+                        "properties": {
+                          "cpu": {
+                            "type": "string"
+                          },
+                          "memory": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "metadataPool": {
+                "properties": {
+                  "failureDomain": {
+                    "type": "string"
+                  },
+                  "replicated": {
+                    "properties": {
+                      "size": {
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "preservePoolsOnDelete": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "storageClass": {
+            "properties": {
+              "annotations": {
+                "properties": {},
+                "type": "object"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "labels": {
+                "properties": {},
+                "type": "object"
+              },
+              "name": {
+                "type": "string"
+              },
+              "parameters": {
+                "properties": {
+                  "region": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "reclaimPolicy": {
+                "type": "string"
+              },
+              "volumeBindingMode": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "clusterName": {
+      "type": "string"
+    },
+    "configOverride": {
+      "type": "string"
+    },
+    "csiDriverNamePrefix": {
+      "type": "string"
+    },
+    "ingress": {
+      "properties": {
+        "dashboard": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "kubeVersion": {
+      "type": "null"
+    },
+    "monitoring": {
+      "properties": {
+        "createPrometheusRules": {
+          "type": "boolean"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "prometheusRule": {
+          "properties": {
+            "annotations": {
+              "properties": {},
+              "type": "object"
+            },
+            "labels": {
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "rulesNamespaceOverride": {
+          "type": "null"
+        }
+      },
+      "type": "object"
+    },
+    "operatorNamespace": {
+      "type": "string"
+    },
+    "pspEnable": {
+      "type": "boolean"
+    },
+    "toolbox": {
+      "properties": {
+        "affinity": {
+          "properties": {},
+          "type": "object"
+        },
+        "containerSecurityContext": {
+          "properties": {
+            "capabilities": {
+              "properties": {
+                "drop": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "runAsGroup": {
+              "type": "integer"
+            },
+            "runAsNonRoot": {
+              "type": "boolean"
+            },
+            "runAsUser": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "image": {
+          "type": "null"
+        },
+        "priorityClassName": {
+          "type": "null"
+        },
+        "resources": {
+          "properties": {
+            "limits": {
+              "properties": {
+                "memory": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "requests": {
+              "properties": {
+                "cpu": {
+                  "type": "string"
+                },
+                "memory": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "tolerations": {
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

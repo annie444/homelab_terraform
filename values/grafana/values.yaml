@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=values.schema.json
+kubeletService:
+  namespace: default
+  serviceName: kubelet

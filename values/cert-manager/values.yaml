@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=values.schema.json
+
+installCRDs: true
+
+crds:
+  enabled: true
+  keep: true
+
+replicaCount: 1
+
+enableCertificateOwnerRef: true
+prometheus:
+  enabled: true
+  servicemonitor:
+    enabled: true
+webhook:
+  replicaCount: 1
+cainjector:
+  enabled: true
+  replicaCount: 1
+startupapicheck:
+  enabled: true
