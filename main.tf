@@ -185,6 +185,28 @@ resource "kubernetes_manifest" "l2_announcement" {
   ]
 }
 
+resource "kubernetes_manifest" "lb_ip_pool" {
+  manifest = {
+    "apiVersion" = "cilium.io/v2alpha1"
+    "kind"       = "CiliumLoadBalancerIPPool"
+    "metadata" = {
+      "name" = "lan-pool"
+    }
+    "spec" = {
+      "blocks" = [
+        {
+          "cidr" = "192.168.1.192/27"
+        }
+      ]
+      "disabled" = false
+    }
+  }
+
+  depends_on = [
+    helm_release.cilium,
+  ]
+}
+
 resource "kubernetes_manifest" "loki_chunks" {
   manifest = {
     "apiVersion" = "objectbucket.io/v1alpha1"
